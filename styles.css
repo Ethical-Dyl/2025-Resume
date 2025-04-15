@@ -115,13 +115,13 @@ a:hover {
 /* Frosted Glass Job Cards */
 .job {
   position: relative;
-  background: rgba(255, 255, 255, 0.6); /* Semi-transparent */
+  background: rgba(255, 255, 255, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 30px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  backdrop-filter: blur(10px); /* Frosted glass effect */
+  backdrop-filter: blur(10px);
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.7s ease forwards;
@@ -140,7 +140,7 @@ a:hover {
   z-index: 1;
 }
 
-/* Set different animation delays for each job card */
+/* Animation Delays for Each Job Card */
 .job:nth-child(1) { animation-delay: 0.1s; }
 .job:nth-child(2) { animation-delay: 0.2s; }
 .job:nth-child(3) { animation-delay: 0.3s; }
@@ -173,7 +173,7 @@ a:hover {
 .pixel-runner {
   position: fixed;
   bottom: 10px;
-  left: -100px; /* start off-screen */
+  left: -100px;
   z-index: 0;
   animation: runAcross 10s linear infinite;
 }
@@ -187,13 +187,13 @@ a:hover {
 @keyframes runAcross {
   0% { left: -100px; bottom: 10px; transform: scaleX(1); }
   50% { left: calc(100% - 50px); bottom: 20px; transform: scaleX(1); }
-  50.1% { transform: scaleX(-1); }  /* Flip sprite when turning around */
+  50.1% { transform: scaleX(-1); }
   100% { left: -100px; bottom: 10px; transform: scaleX(-1); }
 }
 
-/* Dark Mode Styles */
+/* Dark Mode Styles with Dark Blue Theme */
 body.dark {
-  background: #121212;
+  background: #0d1b2a; /* Dark blue background */
   color: #f0f0f0;
 }
 
