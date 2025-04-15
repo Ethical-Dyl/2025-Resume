@@ -1,4 +1,4 @@
-/* Base Reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -7,89 +7,134 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f8f9fb;
-  color: #2e2e2e;
-  max-width: 900px;
+  background: linear-gradient(to right, #f0f2f5, #e9eff5);
+  color: #2a2a2a;
+  max-width: 960px;
   margin: 60px auto;
-  padding: 30px;
-  line-height: 1.7;
-  font-size: 16px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-  background: #ffffff;
-  border-radius: 16px;
+  padding: 40px;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.06);
+  line-height: 1.75;
 }
 
 /* Headings */
 h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 20px;
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #1e1e1e;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 600;
-  border-bottom: 2px solid #e0e0e0;
+  margin: 40px 0 20px;
+  color: #0a2540;
+  border-bottom: 2px solid #d0d5dc;
   padding-bottom: 6px;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  color: #333;
 }
 
-/* Contact */
+/* Contact Section */
 .contact {
-  font-size: 1rem;
-  margin-bottom: 30px;
   text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #444;
 }
 
 .contact a {
-  color: #0077cc;
+  color: #0056d2;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .contact a:hover {
+  color: #002c84;
   text-decoration: underline;
 }
 
-/* Job Section */
+/* Job Experience */
 .job {
+  background-color: #fafafa;
+  border-left: 5px solid #4f8cff;
+  border-radius: 12px;
+  padding: 16px 24px;
   margin-bottom: 24px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid #eee;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease;
+}
+
+.job:hover {
+  transform: scale(1.01);
 }
 
 .job-title {
+  font-size: 1.2rem;
   font-weight: 600;
-  font-size: 1.1rem;
-  color: #222;
+  color: #1e3a8a;
+  margin-bottom: 4px;
 }
 
 .location {
   font-style: italic;
   color: #666;
   font-size: 0.95rem;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
-/* Education & Hobbies */
+.job p {
+  color: #333;
+  font-size: 1rem;
+}
+
+/* Education & Certs */
+section p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+/* Hobbies */
 ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-ul li::before {
-  content: "•";
-  color: #0077cc;
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
+  list-style: none;
+  padding: 0;
 }
 
 ul li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  padding-left: 1.8em;
+  position: relative;
+  font-size: 1rem;
+}
+
+ul li::before {
+  content: "🎯";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+ul li:nth-child(1)::before { content: "🏋️"; }
+ul li:nth-child(2)::before { content: "🎮"; }
+ul li:nth-child(3)::before { content: "💻"; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .job {
+    padding: 16px;
+  }
 }
