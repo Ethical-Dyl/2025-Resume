@@ -4,72 +4,143 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dylan Paynter - Resume</title>
-  <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="profile-pic">
-    <img src="assets/dylan.png" alt="Dylan Paynter Profile Image" />
+  <!-- Dark Mode Toggle Button -->
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+
+  <!-- Container for All Content -->
+  <div class="container">
+    <!-- Profile Image -->
+    <img src="profile.jpg" alt="Dylan Paynter Profile" class="profile-img" />
+
+    <!-- Main Title and Typing Animation Subtitle -->
+    <h1>Dylan Paynter</h1>
+    <div class="typing-container">
+      <span id="typed-text"></span>
+      <span class="cursor">&nbsp;</span>
+    </div>
+
+    <!-- Contact Information -->
+    <p class="contact">
+      📫 Feel free to check out the latest happenings and most up to date resume on my 
+      <a href="https://github.com/yourusername" target="_blank">GitHub</a>.
+    </p>
+
+    <!-- Work Experience Section with Animated Timeline & Frosted Glass Cards -->
+    <section>
+      <h2>Work Experience</h2>
+      <div class="timeline">
+        <div class="job">
+          <span class="job-title">Technology Consultant - Paynter Wellsite Solutions</span>
+          <span class="location">Midland, TX | 03/01/25 - Present</span>
+          <p>Developing automation tools, supporting frac and IT operations, and ensuring security compliance.</p>
+        </div>
+        <div class="job">
+          <span class="job-title">Special Projects Engineer – NexTier OFS</span>
+          <span class="location">Midland, TX | 11/2022 - 01/01/25</span>
+          <p>Focused on automation tools and internal app development using Power Apps.</p>
+        </div>
+        <div class="job">
+          <span class="job-title">Penetration Tester – RSI Security</span>
+          <span class="location">San Diego, CA | 08/2022 - 12/2023</span>
+          <p>Contract-based penetration testing across diverse projects.</p>
+        </div>
+        <div class="job">
+          <span class="job-title">Product Security Tester – Lightship Security INC</span>
+          <span class="location">Austin, TX | 06/2021 - 08/2022</span>
+          <p>Analyzed security for Fortinet, Microsoft, and others. Led internal testing and reporting.</p>
+        </div>
+        <div class="job">
+          <span class="job-title">Electronics Technician Level 4 – US WELLS SERVICES</span>
+          <span class="location">Bryan, TX | 08/2018 - 03/2020</span>
+          <p>Led a 10-person team in maintenance of industrial electronics and computing systems.</p>
+        </div>
+        <div class="job">
+          <span class="job-title">Tactical Communications Supervisor – U.S. Marine Corps</span>
+          <span class="location">Camp Pendleton, CA | 06/2013 - 09/2018</span>
+          <p>Managed $23M+ in comms gear and led 50+ Marines in network and systems support.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certifications Section -->
+    <section>
+      <h2>Education & Certifications</h2>
+      <p>🎓 Associate's Degree in Networking, Minor in Cybersecurity – California Institute of Arts and Technology</p>
+      <p>📚 Bachelor’s Degree in Cloud – In Progress</p>
+      <p>🔐 Certifications: CompTIA ITF+, Security+ce, CEH</p>
+    </section>
+
+    <!-- Hobbies Section -->
+    <section>
+      <h2>Hobbies</h2>
+      <ul>
+        <li>🏋️ Powerlifting – Gold medalist, hosted fitness education events</li>
+        <li>🎮 Game Development – Learning to build games for my kids</li>
+        <li>💻 WoW (Arcane Mage main!), casual Fortnite streaming</li>
+      </ul>
+    </section>
   </div>
 
-  <h1>Dylan Paynter</h1>
-  <p class="contact">📫 Feel free to check out the latest happenings on my <a href="https://github.com/yourusername" target="_blank">GitHub</a>.</p>
+  <!-- Fun Pixel Runner Animation -->
+  <div class="pixel-runner">
+    <img src="pixel-runner.png" alt="Pixel Runner">
+  </div>
 
-  <section>
-    <h2>Work Experience</h2>
-    <div class="timeline">
-      <div class="job">
-        <p class="job-title">Technology Consultant - Paynter Wellsite Solutions</p>
-        <p class="location">Midland, TX | 03/01/25 - Present</p>
-        <p>Responsible for developing automation tools, supporting frac and IT operations, Power Apps development, and ensuring network and system compliance with security standards.</p>
-      </div>
+  <!-- Scripts -->
+  <script>
+    // Dark Mode Toggle Script
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
 
-      <div class="job">
-        <p class="job-title">Special Projects Engineer – NexTier OFS</p>
-        <p class="location">Midland, TX | 11/2022 - 01/01/25</p>
-        <p>Responsible for developing automation tools, supporting frac and IT operations, Power Apps development, and ensuring network and system compliance with security standards.</p>
-      </div>
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark');
+      toggleBtn.textContent = '☀️';
+    }
 
-      <div class="job">
-        <p class="job-title">Penetration Tester – RSI Security</p>
-        <p class="location">San Diego, CA | 08/2022 - 12/2023</p>
-        <p>Contract-based role involving diverse penetration testing assignments.</p>
-      </div>
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      const isDark = body.classList.contains('dark');
+      toggleBtn.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
 
-      <div class="job">
-        <p class="job-title">Product Security Tester – Lightship Security INC</p>
-        <p class="location">Austin, TX | 06/2021 - 08/2022</p>
-        <p>Performed security analysis for products from Fortinet, Microsoft, and others. Led testing efforts and vulnerability documentation.</p>
-      </div>
+    // Typing Animation Script
+    document.addEventListener("DOMContentLoaded", function(){
+      const typedTextSpan = document.getElementById("typed-text");
+      const textArray = ["Innovative.", "Driven.", "Always Learning."];
+      const typingDelay = 100;
+      const erasingDelay = 50;
+      const newTextDelay = 2000; // Delay between texts
+      let textArrayIndex = 0;
+      let charIndex = 0;
 
-      <div class="job">
-        <p class="job-title">Electronics Technician Level 4 – US WELLS SERVICES</p>
-        <p class="location">Bryan, TX | 08/2018 - 03/2020</p>
-        <p>Led a 10-person team in maintenance and repair of large-scale industrial electronics and computing systems.</p>
-      </div>
+      function type() {
+        if (charIndex < textArray[textArrayIndex].length) {
+          typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, typingDelay);
+        } else {
+          setTimeout(erase, newTextDelay);
+        }
+      }
 
-      <div class="job">
-        <p class="job-title">Tactical Communications Supervisor – U.S. Marine Corps</p>
-        <p class="location">Camp Pendleton, CA | 06/2013 - 09/2018</p>
-        <p>Oversaw comms gear worth over $23M and supervised a team of 50+ Marines. Managed networks and fiber installations.</p>
-      </div>
-    </div>
-  </section>
+      function erase() {
+        if (charIndex > 0) {
+          typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+          charIndex--;
+          setTimeout(erase, erasingDelay);
+        } else {
+          textArrayIndex = (textArrayIndex + 1) % textArray.length;
+          setTimeout(type, typingDelay + 1100);
+        }
+      }
 
-  <section>
-    <h2>Education & Certifications</h2>
-    <p>🎓 Associate's Degree in Networking, Minor in Cybersecurity – California Institute of Arts and Technology</p>
-    <p>📚 Bachelor’s Degree in Cloud – In Progress</p>
-    <p>🔐 Certifications: CompTIA ITF+, Security+ce, CEH</p>
-  </section>
-
-  <section>
-    <h2>Hobbies</h2>
-    <ul>
-      <li>🏋️ Powerlifting – Gold medalist, hosted fitness education events</li>
-      <li>🎮 Game Development – Learning to build games for my kids</li>
-      <li>💻 WoW (Arcane Mage main!), casual Fortnite streaming</li>
-    </ul>
-  </section>
+      type();
+    });
+  </script>
 </body>
 </html>
