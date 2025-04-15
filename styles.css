@@ -1,162 +1,232 @@
+/* Import Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
+/* Base Styles */
 body {
   font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+  color: #222;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.container {
   max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-  background: linear-gradient(to right, #f8f9fb, #e8efff);
-  color: #333;
-  line-height: 1.6;
+  margin: 60px auto;
+  padding: 0 20px 80px;
+  position: relative;
+  z-index: 1;
 }
 
 /* Headings */
 h1, h2 {
-  border-bottom: 2px solid #4f8cff;
-  padding-bottom: 5px;
-  color: #2b2b2b;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 6px;
+  margin-top: 40px;
+}
+
+/* Links */
+a {
+  color: #007acc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 /* Profile Image */
-.profile-pic {
-  text-align: center;
-  margin: 20px 0 30px;
-}
-
-.profile-pic img {
-  width: 160px;
-  height: 160px;
+.profile-img {
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  border: 4px solid #4f8cff;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   object-fit: cover;
-  transition: transform 0.3s ease;
+  margin: 20px auto;
+  display: block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.profile-pic img:hover {
-  transform: scale(1.05);
+/* Typing Animation Container */
+.typing-container {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.cursor {
+  display: inline-block;
+  background-color: #222;
+  width: 2px;
+  animation: blink 0.7s steps(1) infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 /* Contact Info */
 .contact {
   font-size: 1.1rem;
   margin-bottom: 20px;
-  background: #e6f0ff;
+  background: rgba(0, 122, 204, 0.1);
   padding: 10px 15px;
-  border-left: 5px solid #4f8cff;
+  border-left: 5px solid #007acc;
   border-radius: 4px;
+  text-align: center;
 }
 
-/* Timeline Container */
+/* Dark Mode Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 1.7rem;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* Timeline */
 .timeline {
   position: relative;
-  margin-left: 20px;
+  margin: 2rem 0;
   padding-left: 30px;
 }
 
 .timeline::before {
-  content: '';
+  content: "";
   position: absolute;
-  left: 10px;
+  left: 12px;
   top: 0;
   bottom: 0;
-  width: 3px;
-  background-color: #4f8cff;
+  width: 6px;
+  background: #007acc;
+  border-radius: 10px;
 }
 
-/* Timeline Job Cards */
-.timeline .job {
+/* Frosted Glass Job Cards */
+.job {
   position: relative;
-  margin-bottom: 40px;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
-  animation: fadeInUp 0.7s ease both;
+  background: rgba(255, 255, 255, 0.6); /* Semi-transparent */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.7s ease forwards;
 }
 
-.timeline .job::before {
-  content: '';
+.job::before {
+  content: "";
   position: absolute;
-  left: -25px;
+  left: -22px;
   top: 20px;
-  width: 16px;
-  height: 16px;
-  background-color: #4f8cff;
-  border: 3px solid #fff;
+  width: 12px;
+  height: 12px;
+  background-color: #007acc;
+  border: 2px solid white;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(79, 140, 255, 0.2);
-  animation: pulse 2s infinite ease-in-out;
+  z-index: 1;
 }
 
-/* Job Content */
+/* Set different animation delays for each job card */
+.job:nth-child(1) { animation-delay: 0.1s; }
+.job:nth-child(2) { animation-delay: 0.2s; }
+.job:nth-child(3) { animation-delay: 0.3s; }
+.job:nth-child(4) { animation-delay: 0.4s; }
+.job:nth-child(5) { animation-delay: 0.5s; }
+.job:nth-child(6) { animation-delay: 0.6s; }
+
 .job-title {
   font-weight: 700;
-  font-size: 1.2rem;
-  color: #1c1c1c;
+  display: block;
+  margin-bottom: 5px;
 }
 
 .location {
   font-style: italic;
-  color: #666;
-  margin-bottom: 8px;
+  color: #555;
+  display: block;
+  margin-bottom: 10px;
 }
 
-/* Education & Hobbies */
-section ul {
-  padding-left: 20px;
-}
-
-section ul li {
-  margin-bottom: 8px;
-}
-
-/* Fade-In Up Animation */
+/* Animations */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Pulse Animation for Dots */
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 4px rgba(79, 140, 255, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 0 10px rgba(79, 140, 255, 0.1);
-  }
-  100% {
-    box-shadow: 0 0 0 4px rgba(79, 140, 255, 0.2);
-  }
+/* Pixel Runner Animation */
+.pixel-runner {
+  position: fixed;
+  bottom: 10px;
+  left: -100px; /* start off-screen */
+  z-index: 0;
+  animation: runAcross 10s linear infinite;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  body {
-    padding: 10px;
-  }
+.pixel-runner img {
+  width: 50px;
+  height: auto;
+}
 
-  .profile-pic img {
+/* Keyframe for Pixel Runner Movement */
+@keyframes runAcross {
+  0% { left: -100px; bottom: 10px; transform: scaleX(1); }
+  50% { left: calc(100% - 50px); bottom: 20px; transform: scaleX(1); }
+  50.1% { transform: scaleX(-1); }  /* Flip sprite when turning around */
+  100% { left: -100px; bottom: 10px; transform: scaleX(-1); }
+}
+
+/* Dark Mode Styles */
+body.dark {
+  background: #121212;
+  color: #f0f0f0;
+}
+
+body.dark a {
+  color: #9ecbff;
+}
+
+body.dark .contact {
+  background: rgba(158, 203, 255, 0.1);
+  border-left-color: #9ecbff;
+}
+
+body.dark .job {
+  background: rgba(30, 30, 30, 0.6);
+  border-color: rgba(255,255,255,0.2);
+}
+
+body.dark .timeline::before {
+  background: #555;
+}
+
+body.dark .job::before {
+  background-color: #64b5f6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .profile-img {
     width: 120px;
     height: 120px;
   }
-
-  .timeline {
-    margin-left: 0;
-    padding-left: 20px;
-  }
-
-  .timeline .job::before {
-    left: -20px;
-  }
-
-  .timeline::before {
-    left: 5px;
+  
+  .theme-toggle {
+    font-size: 1.5rem;
   }
 }
