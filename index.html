@@ -9,7 +9,7 @@
 </head>
 <body>
   <!-- Dark Mode Toggle Button -->
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">☀️</button>
 
   <!-- Container for All Content -->
   <div class="container">
@@ -87,18 +87,23 @@
 
   <!-- Fun Pixel Runner Animation -->
   <div class="pixel-runner">
-    <img src="assets/3.png" alt="Pixel Runner">
+    <img src="assets/dylan.png" alt="Pixel Runner">
   </div>
 
   <!-- Scripts -->
   <script>
-    // Dark Mode Toggle Script
+    // Set dark mode as the default
+    if (localStorage.getItem('theme') === null) {
+      localStorage.setItem('theme', 'dark');
+    }
     const toggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
 
     if (localStorage.getItem('theme') === 'dark') {
       body.classList.add('dark');
       toggleBtn.textContent = '☀️';
+    } else {
+      toggleBtn.textContent = '🌙';
     }
 
     toggleBtn.addEventListener('click', () => {
